@@ -35,6 +35,10 @@ def request_weather(lat: float, lon: float, forecast_hours: int = 24) -> list:
     }
 
     response = post(URL, json=params, headers=headers)
+
+    if response.status_code != 200:
+        return result
+    
     data = response.json()
 
     for item in data["data"]["timelines"][0]["intervals"]:
