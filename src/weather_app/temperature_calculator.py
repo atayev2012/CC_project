@@ -11,4 +11,4 @@ def daily_temperature(temperature_data: list):
     temperature = (max(temp_list) + min(temp_list))/2
     temperature_real_feel = (max(temp_real_feel_list) + min(temp_real_feel_list))/2
 
-    return [temperature, round(temperature_real_feel, 3)]    
+    return [round(temperature, 3), round(temperature_real_feel, 3)]    
