@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Оцените нашего бота</title>
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+        <script src="rating.js"></script>
+        <script>
+            let tg = window.Telegram.WebApp;
+        </script>
+        <style>
+            body{
+                background-color: var(--tg-theme-bg-color);
+                color: var(--tg-theme-text-color);
+            }
+
+            .comment_form{
+                width: 94%;
+                padding: 0px;
+                margin: 0 auto;
+            }
+
+            .rate_field{
+                display:flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: center;
+                margin: 6px auto;
+                height: 30px;
+                padding: 4px;
+            }
+
+            .star{
+                font-size: 200%;
+                cursor: pointer;
+                padding: 0 4%;
+                color: #797d7f ;
+            }
+
+            /* .rate_field > span:hover,
+            .rate_field > span:hover ~ span{
+                color:red;
+            } */
+
+            .text_field{
+                width: 100%;
+                height: 40vh;
+                max-height: 150px;
+                min-height: 100px;
+                margin: 0 auto;
+            }
+            
+            textarea{
+                box-sizing: border-box;
+                border-radius: 15px;
+                padding: 10px;
+                resize: None;
+            }
+
+            textarea::placeholder{
+                color: var(--tg-theme-hint-color);
+            }
+
+            textarea:focus{
+                border-color: var(--tg-theme-button-color);
+                box-shadow: 0 0 3px var(--tg-theme-button-color);
+                outline: None; 
+            }
+
+            .send_button{
+                height: 8vw;
+                max-height: 40px;
+                min-height: 15px;
+                margin: 6px 25%;
+                width: 50%;
+                background: var(--tg-theme-button-color);
+                color: var(--tg-theme-button-text-color);
+                border: none;
+                border-radius: 4vw;
+            }
+
+        </style>
+    </head>
+    <body onload="startOnLoad()">
+        <form class="comment_form">
+            <div class="rate_field">
+                <span class="star" id="5" onclick="selectRating(5)">★</span>
+                <span class="star" id="4" onclick="selectRating(4)">★</span>
+                <span class="star" id="3" onclick="selectRating(3)">★</span>
+                <span class="star" id="2" onclick="selectRating(2)">★</span>
+                <span class="star" id="1" onclick="selectRating(1)">★</span>
+            </div>
+            <textarea class="text_field" placeholder="Пожалуйста введите свой комментарий или ваше предложение по улучшению нашего бота!"></textarea>
+            <button class="send_button">Отправить</button>
+        </form>
+    </body>
+</html>
