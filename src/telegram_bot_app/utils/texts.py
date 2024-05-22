@@ -7,3 +7,14 @@ def start_text(user_name: str, user_status: str = "free") -> str:
                        f"Премиум: безлимит запросов, два аутфита")
 
     return result_text
+
+
+# texts for /gender command
+GENDER_TEXT = "Твой пол?👚👕"
+GENDERS = {
+    "m": "👕 Мужской",
+    "f": "👚 Женский"
+}
+
+# texts for /style command
+STYLE_TEXT = "Какой стиль ты предпочитаешь?"
