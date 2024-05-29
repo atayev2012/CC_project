@@ -17,3 +17,7 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 # Tomorrow.io variables (weather service)
 WEATHER_API_KEY = getenv("WEATHER_API_KEY")
 WEATHER_URL = getenv("WEATHER_URL")
+
+
+if __name__ == "__main__":
+    print(DB_PASSWORD)
