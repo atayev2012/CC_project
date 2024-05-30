@@ -47,7 +47,8 @@ outfits = Table(
     Column("outfit_description", String),
     Column("outfit_photo_url", String, nullable=False),
     Column("outfit_gender_id", Integer, ForeignKey("genders.id")),
-    Column("outfit_style_id", Integer, ForeignKey("styles.id"))
+    Column("outfit_style_id", Integer, ForeignKey("styles.id")),
+    Column("outfit_temperature_range_id", Integer, ForeignKey("temperature_ranges.id"))
 )
 
 outfit_rating = Table(
@@ -119,6 +120,5 @@ temporary_request_data = Table(
     Column("user_id", BigInteger, ForeignKey("users.id")),
     Column("is_premium", BOOLEAN),
     Column("gender", String),
-    Column("style_id", BigInteger, ForeignKey("styles.id")),
-    Column("temperature_range_id", Integer, ForeignKey("temperature_ranges.id"))
+    Column("style_id", BigInteger, ForeignKey("styles.id"))
 )
