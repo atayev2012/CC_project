@@ -33,10 +33,12 @@ def request_weather(lat: float, lon: float, forecast_hours: int = 24) -> list:
         "endTime": f"nowPlus{forecast_hours}h",
         "timezone": "Europe/Volgograd"
     }
+    try:
+        response = post(URL, json=params, headers=headers)
 
-    response = post(URL, json=params, headers=headers)
-
-    if response.status_code != 200:
+        if response.status_code != 200:
+            return result
+    except:
         return result
     
     data = response.json()
