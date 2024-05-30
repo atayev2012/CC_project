@@ -106,17 +106,16 @@ async def select_temperature_range(temperature: float, get_session = async_sessi
         return None
     
 # Select outfit
-async def select_outfit(style_id: int, get_session = async_session_maker) -> list | None:
+async def select_outfit(style_id: int, temperature_id: int, get_session = async_session_maker) -> list | None:
     async with get_session() as session:        
-        query = select(outfits.c.outfit_photo_url).where(outfits.c.outfit_style_id == style_id)
+        query = select(outfits.c.outfit_photo_url).where((outfits.c.outfit_style_id == style_id) & (outfits.c.outfit_temperature_range_id == temperature_id))
         query_result = await session.execute(query)
         query_result_data = query_result.all()
     
     if query_result_data:
         result = []
         for item in query_result_data:
-            # result.append(item[3])
-            print(item)
+            result.append(item[0])
         return result
     else:
         return None
